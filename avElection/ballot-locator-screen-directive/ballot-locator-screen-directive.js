@@ -65,4 +65,19 @@ angular.module('avElection')
       link: link,
       templateUrl: 'avElection/ballot-locator-screen-directive/ballot-locator-screen-directive.html'
     };
+        var ctx = document.getElementById("line").getContext("2d");
+    var data = {
+      labels: scope.questions,
+      datasets: [{
+        label: "Votos por dia",
+        fillColor: "rgba(220,200,200,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: scope.questions.options.length
+      }]
+    };
+    var barChart = new Chart(ctx).Line(data);
   });
